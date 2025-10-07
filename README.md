@@ -65,9 +65,9 @@ Nightly builds can be found [here](https://github.com/originalnicodr/CinematicUn
 
 The standalone release can be used with any injector or loader of your choice, but it requires you to load the dependencies manually.
 
-1. Ensure the required libs are loaded - UniverseLib, HarmonyX and MonoMod. Take them from the [`CinematicUnityExplorer.Editor`](https://github.com/originalnicodr/CinematicUnityExplorer/releases/latest/download/CinematicUnityExplorer.Editor.zip) release if you need them.
+1. All required libraries (UniverseLib, HarmonyX, MonoMod and Mono.Cecil) are included in the standalone release.
 2. For IL2CPP, load Il2CppAssemblyUnhollower and start an [Il2CppAssemblyUnhollower runtime](https://github.com/knah/Il2CppAssemblyUnhollower#required-external-setup)
-2. Load the CinematicUnityExplorer DLL
+2. Load all the DLL files from the release package
 3. Create an instance of Unity Explorer with `UnityExplorer.ExplorerStandalone.CreateInstance();`
 4. Optionally subscribe to the `ExplorerStandalone.OnLog` event to handle logging if you wish
 
