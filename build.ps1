@@ -192,6 +192,18 @@ lib/ILRepack.exe /target:library /lib:lib/net35 /lib:$Path /internalize /out:$Pa
 # (cleanup and move files)
 Remove-Item $Path/Tomlet.dll
 Remove-Item $Path/mcs.dll
+# Copy HarmonyX and MonoMod dependencies from NuGet packages
+$NuGetPackages = if ($IsWindows -or $env:OS) { "$env:USERPROFILE\.nuget\packages" } else { "$env:HOME/.nuget/packages" }
+Copy-Item $NuGetPackages/harmonyx/2.15.0/lib/net35/0Harmony.dll -Destination $Path -Force
+Copy-Item $NuGetPackages/monomod.backports/1.1.2/lib/net35/MonoMod.Backports.dll -Destination $Path -Force
+Copy-Item $NuGetPackages/monomod.core/1.3.0/lib/net35/MonoMod.Core.dll -Destination $Path -Force
+Copy-Item $NuGetPackages/monomod.ilhelpers/1.1.0/lib/net35/MonoMod.ILHelpers.dll -Destination $Path -Force
+Copy-Item $NuGetPackages/monomod.runtimedetour/25.3.0/lib/net35/MonoMod.RuntimeDetour.dll -Destination $Path -Force
+Copy-Item $NuGetPackages/monomod.utils/25.0.8/lib/net35/MonoMod.Utils.dll -Destination $Path -Force
+Copy-Item $NuGetPackages/mono.cecil/0.10.4/lib/net35/Mono.Cecil.dll -Destination $Path -Force
+Copy-Item $NuGetPackages/mono.cecil/0.10.4/lib/net35/Mono.Cecil.Rocks.dll -Destination $Path -Force
+Copy-Item $NuGetPackages/mono.cecil/0.10.4/lib/net35/Mono.Cecil.Pdb.dll -Destination $Path -Force
+Copy-Item $NuGetPackages/mono.cecil/0.10.4/lib/net35/Mono.Cecil.Mdb.dll -Destination $Path -Force
 Remove-Item $Path/../CinematicUnityExplorer.Standalone.Mono.zip -ErrorAction SilentlyContinue
 compress-archive .\$Path\* $Path/../CinematicUnityExplorer.Standalone.Mono.zip
 
@@ -205,6 +217,17 @@ Remove-Item $Path/Tomlet.dll
 Remove-Item $Path/mcs.dll
 Remove-Item $Path/Iced.dll
 Remove-Item $Path/UnhollowerBaseLib.dll
+# Copy HarmonyX and MonoMod dependencies from NuGet packages
+Copy-Item $NuGetPackages/harmonyx/2.15.0/lib/net452/0Harmony.dll -Destination $Path -Force
+Copy-Item $NuGetPackages/monomod.backports/1.1.2/lib/net452/MonoMod.Backports.dll -Destination $Path -Force
+Copy-Item $NuGetPackages/monomod.core/1.3.0/lib/net452/MonoMod.Core.dll -Destination $Path -Force
+Copy-Item $NuGetPackages/monomod.ilhelpers/1.1.0/lib/net452/MonoMod.ILHelpers.dll -Destination $Path -Force
+Copy-Item $NuGetPackages/monomod.runtimedetour/25.3.0/lib/net452/MonoMod.RuntimeDetour.dll -Destination $Path -Force
+Copy-Item $NuGetPackages/monomod.utils/25.0.8/lib/net452/MonoMod.Utils.dll -Destination $Path -Force
+Copy-Item $NuGetPackages/mono.cecil/0.11.6/lib/net40/Mono.Cecil.dll -Destination $Path -Force
+Copy-Item $NuGetPackages/mono.cecil/0.11.6/lib/net40/Mono.Cecil.Rocks.dll -Destination $Path -Force
+Copy-Item $NuGetPackages/mono.cecil/0.11.6/lib/net40/Mono.Cecil.Pdb.dll -Destination $Path -Force
+Copy-Item $NuGetPackages/mono.cecil/0.11.6/lib/net40/Mono.Cecil.Mdb.dll -Destination $Path -Force
 Remove-Item $Path/../CinematicUnityExplorer.Standalone.IL2CPP.zip -ErrorAction SilentlyContinue
 compress-archive .\$Path\* $Path/../CinematicUnityExplorer.Standalone.IL2CPP.zip
 
