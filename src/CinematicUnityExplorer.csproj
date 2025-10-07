@@ -123,7 +123,7 @@
 
   <!-- ~~~~~ NUGET ~~~~~ -->
   <ItemGroup>
-    <PackageReference Include="HarmonyX" Version="2.10.2" IncludeAssets="compile" />
+    <PackageReference Include="HarmonyX" Version="2.15.0" IncludeAssets="compile" />
     <PackageReference Include="Samboy063.Tomlet" Version="3.1.3" />
     <PackageReference Include="Microsoft.Unity.Analyzers" Version="1.16.1">
       <PrivateAssets>all</PrivateAssets>
